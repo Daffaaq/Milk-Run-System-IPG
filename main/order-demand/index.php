@@ -1,4 +1,10 @@
 <?php
+require_once '../../helper/auth.php';
+
+isLogin();
+?>
+
+<?php
 include '../layout/head.php';
 ?>
 
@@ -288,7 +294,7 @@ include '../layout/head.php';
                 <h4 class="fw-semibold mb-0">Order / Demand Input</h4>
                 <ol class="breadcrumb border px-3 py-2 rounded mb-0">
                     <li class="breadcrumb-item">
-                        <a href="index.html" class="text-muted">Dashboard</a>
+                        <a href="../dashboard/index.php" class="text-muted">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
                         <span class="active text-primary fw-semibold">Order / Demand Input</span>
