@@ -4,7 +4,7 @@
 # Jangan push file PHP di folder helper
 helper/*.php
 # Tapi tetap ada foldernya
-helper/.gitkeep
+!helper/.gitkeep
 
 # =========================
 # Assets folder
