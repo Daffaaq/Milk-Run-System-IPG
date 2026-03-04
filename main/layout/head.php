@@ -12,7 +12,7 @@
     <!--  Aos -->
     <link rel="stylesheet" href="../../assets/modernize/libs/aos/dist/aos.css">
     <link rel="stylesheet" href="../../assets/modernize/libs/owl.carousel/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../assets/modernize/css/style.min.css">
+    <link id="themeColors" rel="stylesheet" href="../../assets/modernize/css/style.min.css">
 
     <!-- datatables -->
     <link rel="stylesheet" href="../../assets/modernize/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">

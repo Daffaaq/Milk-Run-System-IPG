@@ -146,14 +146,6 @@ include '../layout/head.php';
                             <i class="ti ti-map-2 text-primary fs-5"></i>
                             <h5 class="fw-semibold mb-0">Vehicle Tracking Map</h5>
                         </div>
-                        <div>
-                            <span class="badge bg-light text-dark me-2">
-                                <i class="ti ti-current-location me-1"></i> 42 Active
-                            </span>
-                            <span class="badge bg-success">
-                                <i class="ti ti-circle-filled me-1" style="font-size: 8px;"></i> Live
-                            </span>
-                        </div>
                     </div>
 
                     <!-- Container untuk Leaflet Map -->
@@ -172,11 +164,6 @@ include '../layout/head.php';
                         <div class="d-flex align-items-center gap-2">
                             <i class="ti ti-chart-line text-primary fs-5"></i>
                             <h5 class="fw-semibold mb-0">Trips per Day (Last 7 Days)</h5>
-                        </div>
-                        <div>
-                            <span class="badge bg-primary bg-opacity-10 text-primary">
-                                <i class="ti ti-calendar me-1"></i> Mar 3 - Mar 9, 2026
-                            </span>
                         </div>
                     </div>
 
@@ -228,12 +215,133 @@ include '../layout/head.php';
         </div>
     </div>
 
+    <!-- Row untuk Route Schedule Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Header Card -->
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="ti ti-calendar-clock text-primary fs-5"></i>
+                            <h5 class="fw-semibold mb-0">Route Schedule Today</h5>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-primary" onclick="refreshTable()">
+                                <i class="ti ti-refresh me-1"></i>Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="table-responsive">
+                        <table id="routeScheduleTable" class="table table-striped table-bordered w-100">
+                            <thead>
+                                <tr>
+                                    <th>Route ID</th>
+                                    <th>Route Details</th>
+                                    <th>Vehicle</th>
+                                    <th>Driver</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>RTE-001</td>
+                                    <td>Jakarta Pusat - Bekasi (via Tol Cikunir)</td>
+                                    <td>Truck A-01 (Box 10 ton)</td>
+                                    <td>Budi Santoso</td>
+                                    <td>08:00 - 10:30</td>
+                                    <td><span class="badge bg-success">On Going</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-002</td>
+                                    <td>Jakarta Selatan - Depok (via Margonda)</td>
+                                    <td>Truck A-02 (Box 8 ton)</td>
+                                    <td>Ahmad Hidayat</td>
+                                    <td>09:00 - 11:15</td>
+                                    <td><span class="badge bg-success">On Going</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-003</td>
+                                    <td>Jakarta Barat - Tangerang (via Kembangan)</td>
+                                    <td>Truck B-01 (Wingbox 12 ton)</td>
+                                    <td>Rudi Hermawan</td>
+                                    <td>07:30 - 09:45</td>
+                                    <td><span class="badge bg-success">On Going</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-004</td>
+                                    <td>Jakarta Utara - Cikarang (via Tol Cilincing)</td>
+                                    <td>Truck C-01 (Fuso 15 ton)</td>
+                                    <td>Slamet Riyadi</td>
+                                    <td>10:00 - 13:30</td>
+                                    <td><span class="badge bg-warning">Loading</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-005</td>
+                                    <td>Jakarta Timur - Bogor (via Tol Jagorawi)</td>
+                                    <td>Truck A-03 (Box 10 ton)</td>
+                                    <td>Joko Susilo</td>
+                                    <td>08:30 - 11:45</td>
+                                    <td><span class="badge" style="background-color: gray; color: white;">Planned</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-006</td>
+                                    <td>Jakarta Pusat - Cileungsi (via Tol Jorr)</td>
+                                    <td>Truck B-02 (Wingbox 12 ton)</td>
+                                    <td>Dedi Kurniawan</td>
+                                    <td>09:15 - 12:30</td>
+                                    <td><span class="badge bg-success">On Going</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-007</td>
+                                    <td>Jakarta Selatan - Ciputat (via Pondok Pinang)</td>
+                                    <td>Truck A-04 (Box 8 ton)</td>
+                                    <td>Agus Salim</td>
+                                    <td>11:00 - 13:15</td>
+                                    <td><span class="badge bg-warning">Loading</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-008</td>
+                                    <td>Jakarta Barat - Serpong (via Tol Ulujami)</td>
+                                    <td>Truck C-02 (Fuso 15 ton)</td>
+                                    <td>Hendra Wijaya</td>
+                                    <td>07:00 - 09:30</td>
+                                    <td><span class="badge bg-secondary">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-009</td>
+                                    <td>Jakarta Utara - Karawang (via Tol Cikampek)</td>
+                                    <td>Truck A-05 (Box 10 ton)</td>
+                                    <td>Wawan Setiawan</td>
+                                    <td>12:00 - 15:45</td>
+                                    <td><span class="badge bg-danger">Delayed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RTE-010</td>
+                                    <td>Jakarta Timur - Cibubur (via Alternatif)</td>
+                                    <td>Truck B-03 (Wingbox 12 ton)</td>
+                                    <td>Eko Prasetyo</td>
+                                    <td>13:30 - 15:45</td>
+                                    <td><span class="badge bg-danger">Delayed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 
 <script>
+    // Inisialisasi DataTable
+    let routeTable;
     // Inisialisasi Vehicle Tracking Map
     function initVehicleTrackingMap() {
         // Koordinat pusat (Jakarta area)
@@ -354,7 +462,6 @@ include '../layout/head.php';
             chart: {
                 type: 'line',
                 height: 350,
-                width: 500,
                 toolbar: {
                     show: false
                 },
@@ -433,7 +540,6 @@ include '../layout/head.php';
             chart: {
                 type: 'bar',
                 height: 350,
-                width: 500,
                 toolbar: {
                     show: false
                 },
@@ -544,7 +650,6 @@ include '../layout/head.php';
             chart: {
                 type: 'bar',
                 height: 350,
-                width: 500,
                 toolbar: {
                     show: false
                 },
@@ -708,12 +813,57 @@ include '../layout/head.php';
         window.vehicleUtilizationChart = chart;
     }
 
+    // Inisialisasi DataTable
+    function initDataTable() {
+        routeTable = $('#routeScheduleTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            lengthMenu: [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
+            order: [
+                [4, 'asc']
+            ], // Sort by Time column
+            columnDefs: [{
+                targets: 5, // Status column
+                render: function(data, type, row) {
+                    if (type === 'display') {
+                        // Data sudah berisi HTML badge, jadi kembalikan apa adanya
+                        return data;
+                    }
+                    // Untuk sorting/filtering, ambil teks saja
+                    return $(data).text();
+                }
+            }],
+            language: {
+                search: "Search:",
+                lengthMenu: "Show _MENU_ entries",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                paginate: {
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
+                }
+            }
+        });
+    }
+
+    // Fungsi refresh table
+    function refreshTable() {
+        if (routeTable) {
+            routeTable.draw();
+        }
+    }
+
     // Panggil di DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function() {
         initVehicleTrackingMap();
         initTripsChart();
         initCostPerRouteChart();
         initVehicleUtilizationChart();
+        initDataTable();
     });
 
     // Update cleanup
@@ -722,6 +872,7 @@ include '../layout/head.php';
         if (window.tripsChart) window.tripsChart.destroy();
         if (window.costPerRouteChart) window.costPerRouteChart.destroy();
         if (window.vehicleUtilizationChart) window.vehicleUtilizationChart.destroy();
+        if (routeTable) routeTable.destroy();
     });
 </script>
 
